@@ -5,6 +5,8 @@
 
 \begin{document}
 
+\newcommand{\R}{\mathbb{R}}
+
 \title{HW1 MATH 670}
 \author{Fernando}
 \date{\today}
@@ -12,10 +14,51 @@
 
 \section*{\#1}
 \subsection*{(a)}
-Consider the usual atlas that contains the charts $(\mathbb{R},\phi_N)$ and
-$(\mathbb{R},\phi_S)$, where $\phi_N$ and $\phi_S$ are defined in example 1.15 of the notes (stereographic projection from the north and south pole respectively). 
+Consider the charts $(\R,\phi_N)$ and
+$(\R,\phi_S)$, where $\phi_N$ and $\phi_S$ are
+defined in example 1.15 of the notes (inverse
+stereographic projection from the north and south poles
+respectively).\\
+\textbf{Claim:} This collection of charts
+works.
+
+\textbf{Proof:}
+
+We have two cases: $\alpha=\beta$ and $\alpha\neq\beta$.
+\begin{itemize}
+	\item $\alpha=\beta$: This case is probably
+		trivial but I will check it anyway.
+		Here
+		$\phi_\beta^{-1}\circ\phi_\alpha=I:\R^n\to\R^n$,
+		then for any point $p$,
+		$dI_p:T_p\R^n\to T_p\R^n$ is the
+		identity map. Which has determinant
+		1.
+
+	\item $\alpha\neq\beta$: WLOG take $\phi_\beta=\phi_N$ and
+		$\phi_\alpha=\phi_S$ then (as in page 4 of the notes)
+		$(\phi_N^{-1}\circ\phi_S)(\vec{x})=\frac{1}{||\vec{x}||^2}\vec{x}$.
+		If we pick the curve $\alpha(t)=p+tv$ we get:
+		\begin{align*}
+			\left(\frac{p+tv}{||p+tv||^2}\right)'(0)
+			&=\left(\frac{v||p+tv||^2-(p+tv)\left(2(p+tv)\cdot v\right)}{||p+tv||^4}\right)(0)\\
+			&=\frac{v||p||^2-2p(p\cdot v)}{||p||^4}\\
+			&=\frac{v||p||^2-2pp^Tv}{||p||^4}\\
+			&=\frac{||p||^2I-2pp^T}{||p||^4}v\\
+			&=\frac{1}{||p||^2}\left(I-\frac{2}{||p||^2}pp^T\right)v.
+		\end{align*}
+		Then using the Weinstein–Aronszajn identity (thanks professor!) we can compute the determinant like this:
+		\begin{align*}
+\bigg|\frac{1}{||p||^2}\left(I-\frac{2}{||p||^2}pp^T\right)\bigg|
+&= \frac{1}{||p||^2}\bigg|\left(I-\frac{2}{||p||^2}pp^T\right)\bigg|\\
+&=\frac{2}{||p||^2}\bigg|\left(1-\frac{2}{||p||^2}p^Tp\right)\bigg|\qquad(\text{W-A Identity})\\
+&=\frac{-1}{||p||^2}.
+		\end{align*}
+
+\end{itemize}
+
 \subsection*{(b)}
-\section{\#2}
-\section{\#3}
-\section{\#4}
+\section*{\#2}
+\section*{\#3}
+\section*{\#4}
 \end{document}
